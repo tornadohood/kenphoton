@@ -1,0 +1,19 @@
+USER=$(id -u -n)
+USER_ID=$(id -u)
+GROUP=$(id -g -n)
+GROUP_ID=$(id -g)
+
+DOCKER_IMAGE=supportdev_pure_tools_runtests_img
+DOCKER_IMAGE_BASE_TAG=$(md5sum ${PKGS_FILE} | awk '{print $1}')
+DOCKER_IMAGE_TAG=${USER}_${DOCKER_IMAGE_BASE_TAG}
+
+# Installed by root
+APT_PACKAGES='python-pip python-dev libpq-dev liblapack-dev gfortran python-mysqldb python-matplotlib git liblzma-dev'
+
+# Installed by user
+PIP_PACKAGES=$(while read p;do packages="$p $packages";done < ../requirements.txt; echo $packages)
+
+PYTHONPATH_CONTAINER=$(dirname "$(pwd)")
+CONTAINER_NAME=supportdev_pure_tools_test
+
+CMDS_IN_CONTAINER="sh ./supportdev_runtests.sh"
