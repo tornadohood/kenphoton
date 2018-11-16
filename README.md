@@ -16,6 +16,7 @@ Wiki:   https://wiki.purestorage.com/display/SDT/Support+Dev+Team
 * Jacob Hopkinson (jhop@purestorage.com)
 * Micheal Taylor  (bub@purestorage.com)
 * Rich Stacey     (richstacey@purestorage.com)
+* Ken Chee        (kchee@purestorage.com)
 
 # __Conventions__
 General convention sections are listed below.  These are conventions for things like documentation,
